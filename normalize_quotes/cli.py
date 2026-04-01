@@ -48,20 +48,20 @@ def normalize_file(file_path: Path) -> bool:
 
 
 def normalize_directory(directory_path: Path) -> None:
-    """Normalize smart quotes in all .md files in a directory (non-recursive)."""
-    md_files = list(directory_path.glob("*.md"))
+    """Normalize smart quotes in all .md and .txt files in a directory (non-recursive)."""
+    target_files = list(directory_path.glob("*.md")) + list(directory_path.glob("*.txt"))
 
-    if not md_files:
-        logger.warning("No .md files found in '%s'.", directory_path)
+    if not target_files:
+        logger.warning("No .md or .txt files found in '%s'.", directory_path)
         return
 
-    logger.info("Found %d markdown file(s). Processing...", len(md_files))
+    logger.info("Found %d file(s). Processing...", len(target_files))
 
-    success_count = sum(normalize_file(md_file) for md_file in md_files)
+    success_count = sum(normalize_file(target_file) for target_file in target_files)
     logger.info(
         "Done: %d/%d file(s) processed successfully.",
         success_count,
-        len(md_files),
+        len(target_files),
     )
 
 
@@ -73,7 +73,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "path",
-        help="File or directory to process. Directories scan for *.md files.",
+        help="File or directory to process. Directories scan for *.md and *.txt files.",
     )
     parser.add_argument(
         "--log-level",
