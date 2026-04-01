@@ -4,7 +4,7 @@ A zero-dependency CLI tool that replaces smart/curly quotes and ellipses with pl
 
 ## When Curly Quotes Break Everything
 
-Smart quotes (`"` `"` `'` `'`) and fancy ellipses (`…`) sneak into Markdown and text files from word processors, CMS exports, and copy-pasted content. They cause subtle bugs in parsers, static site generators, linters, and anywhere that expects plain ASCII punctuation. Hunting them down manually is tedious and easy to miss.
+Smart quotes (`“` `”` `‘` `’`) and fancy ellipses (`…`) sneak into Markdown and text files from word processors, CMS exports, and copy-pasted content. They cause subtle bugs in parsers, static site generators, linters, and anywhere that expects plain ASCII punctuation. Hunting them down manually is tedious and easy to miss.
 
 ## Straight Quotes, Automatically
 
@@ -12,8 +12,8 @@ Smart quotes (`"` `"` `'` `'`) and fancy ellipses (`…`) sneak into Markdown an
 
 | Smart character | Replaced with |
 |---|---|
-| `'` `'` (curly single quotes) | `'` |
-| `"` `"` (curly double quotes) | `"` |
+| `‘` `’` (curly single quotes) | `'` |
+| `“` `”` (curly double quotes) | `"` |
 | `…` (ellipsis) | `...` |
 
 Files that don't need changes are left untouched.
@@ -22,7 +22,7 @@ Files that don't need changes are left untouched.
 
 ```
 # Before
-"It's a 'great' day…" said the README.
+“It’s a ‘great’ day…” said the README.
 
 # After
 "It's a 'great' day..." said the README.
@@ -67,3 +67,5 @@ options:
 
 - Python 3.11+
 - No third-party dependencies
+
+<br>
